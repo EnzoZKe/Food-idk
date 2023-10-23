@@ -1,0 +1,74 @@
+﻿@model IEnumerable<AAAAA_FUNCIONA_MDS.Models.Produto>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+
+</style>
+
+
+<!--? Sessão do carrossel-->
+<section class="carousel carousel-dark slide Carrossel mb-5" id="meucarrossel" data-bs-ride="carousel">
+    <!--? indicador do banner-->
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#meucarrossel" data-bs-slide-to="0" class="active bg-white"></button>
+        <button type="button" data-bs-target="#meucarrossel" data-bs-slide-to="1" class="bg-white"></button>
+        <button type="button" data-bs-target="#meucarrossel" data-bs-slide-to="2" class="bg-white"></button>
+        <button type="button" data-bs-target="#meucarrossel" data-bs-slide-to="3" class="bg-white"></button>
+
+    </div>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="1000">
+
+            <img src="https://img.freepik.com/fotos-gratis/asas-de-frango-de-churrasco-em-molho-agridoce-piquenique-menu-de-verao-comida-saborosa-vista-do-topo-configuracao-plana_2829-6470.jpg?w=1380&t=st=1697543951~exp=1697544551~hmac=3ada35860680a53ddd198300a3367df10dcb952c19812efbf7477b9c441f8653"
+                alt="" class="w-100  caro-img">
+            <div class="carousel-caption">
+
+            </div>
+
+        </div>
+        <div class="carousel-item">
+            <img src="https://img.freepik.com/fotos-gratis/ovos-fritos-com-legumes_2829-10927.jpg?w=1380&t=st=1697544015~exp=1697544615~hmac=d17bce80e52212f53d6aef60bf8819ff93909448ae53d29d93a06c2ebf9a4af1"
+                alt="" class=" w-100 img-fluid caro-img">
+        </div>
+
+        <div class="carousel-item">
+            <img src="https://img.freepik.com/fotos-premium/variedade-de-alimentos-salada-abacate-codorna-cogumelos-abobora-em-um-fundo-preto-vista-superior-espaco-livre-para-o-seu-texto_187166-35302.jpg?w=1380"
+                alt="" class=" w-100 img-fluid caro-img">
+        </div>
+
+        <div class="carousel-item">
+            <img src="https://img.freepik.com/fotos-gratis/frite-a-carne-com-pimentao-feijao-verde-e-arroz_2829-20132.jpg?w=1060&t=st=1697559157~exp=1697559757~hmac=eef9a16dde8dc0fe9ab461edde3c6a280e46a52586c3e498ad85a7e209ed55d5"
+                alt="" class=" w-100 caro-img">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#meucarrossel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#meucarrossel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+
+    <div class="shadow"></div>
+
+</section>
+
+
+<div class="container-fluid d-md-flex justify-content-center flex-wrap">
+    @foreach (var item in Model)
+    {
+        <div class=" m-3 d-flex flex-column text-center bg-white" style="width: 200px; box-shadow: 4px 4px 10px rgba(222, 222, 222, 0.416);">
+            <div>
+                <img src="@item.Foto" class="" style="width: 100%; height: 150px;">
+                <p class="text-white bg-dark">@item.Nome</p> 
+            </div>
+
+            <p class="m-1">@item.Descricao</p>
+            <a class="btn btn-dark m-4" asp-area="Admin" asp-controller="Produto" asp-action="Details">Mais informações</a>
+        </div>
+    }
+</div>

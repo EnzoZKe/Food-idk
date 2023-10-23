@@ -1,0 +1,48 @@
+@model IEnumerable<AAAAA_FUNCIONA_MDS.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Usuários</h1>
+
+<p>
+    <a asp-action="Create">Criar novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Senha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FotoPFP)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Senha)
+                </td>
+                <td>
+                    <img src="@Html.DisplayFor(modelItem => item.FotoPFP)" class="img-fluid img-thumbnail" style="max-width: 100px;">
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Nome" >Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.Nome">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Nome">Deletar    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

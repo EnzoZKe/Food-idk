@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+:root {
+  --azulEscuro: #1C1B39;
+  --preto: #13041F;
+  --branco: #FDEDFF;
+  --brancoTransparente: #fdedff4e;
+  --azul: #141AB0;
+  --azulAcinzentado: #463F70;
+  --azulCinza: #38374D;
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem var(--branco), 0 0 0 0.25rem var(--azulEscuro);
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--azulCinza);
+}
+
+
+.caro-img {
+  height: 600px;
+}
+
+.shadow {
+  position: relative;
+}
+.shadow::before{
+  --Size: 0px;
+  content: " ";
+  background: transparent;
+
+  box-shadow: 10px -8px 25px 40px var(--azulCinza);
+
+  height: var(--Size);
+  width: 100%;
+  position: absolute;
+  top: calc(var(--Size) * -1);
+}
+
+@media (max-width: 600px) {
+  .caro-img {
+    height: 150px;
+  }
+}
+
+.InputInfo {
+  background-color: var(--azulAcinzentado);
+}
+
+.InfoSection {
+  background-color: var(--brancoTransparente);
+  padding-left: 20vw;
+  padding-right: 20vw;
+  padding-top: 5vw;
+  padding-bottom: 5vw;
+  width: 93%;
+  
+}
+ 
+.ButtonEntrar {
+  border: solid 2px black;
+  background-color: var(--azul);
+  border-radius: 7px;
+}
