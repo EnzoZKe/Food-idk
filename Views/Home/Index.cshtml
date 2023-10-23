@@ -10,7 +10,7 @@
 
 
 <!--? Sessão do carrossel-->
-<section class="carousel carousel-dark slide Carrossel mb-5" id="meucarrossel" data-bs-ride="carousel">
+<section class="carousel carousel-dark slide Carrossel " id="meucarrossel" data-bs-ride="carousel">
     <!--? indicador do banner-->
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#meucarrossel" data-bs-slide-to="0" class="active bg-white"></button>
@@ -57,18 +57,33 @@
 
 </section>
 
+<div class="form-group DivInputPesquisa">
+    <label class="control-label text-light"></label>
+    <input type="text" class="form-control border-0 InputPesquisa ps-3" placeholder="Pesquisar..."/>
+    <span class="text-danger"></span>
+</div>
 
 <div class="container-fluid d-md-flex justify-content-center flex-wrap">
-    @foreach (var item in Model)
-    {
-        <div class=" m-3 d-flex flex-column text-center bg-white" style="width: 200px; box-shadow: 4px 4px 10px rgba(222, 222, 222, 0.416);">
-            <div>
-                <img src="@item.Foto" class="" style="width: 100%; height: 150px;">
-                <p class="text-white bg-dark">@item.Nome</p> 
-            </div>
+<!-- não não >:T-->
+<!--ESQUEMA DE PIRAMINE-->
+    
+        @foreach (var item in Model)
+            {
+                if(@item.EmEstoque == true)
+                {
+                    <div class=" m-3 d-flex flex-column text-center bg-white"
+                    style="width: 200px; box-shadow: 4px 4px 10px rgba(222, 222, 222, 0.416);">
+                    <div>
+                        <img src="@item.Foto" class="" style="width: 100%; height: 150px;">
+                        <p class="text-white bg-dark">@item.Nome</p>
+                    </div>
+                    <p class="m-1">@item.Descricao</p>
+                    <a class="btn btn-dark m-4" asp-area="Admin" asp-controller="Produto" asp-action="Details">Mais informações</a>
+                    <p class="text-center">Em estoque @Html.DisplayFor(model => item.EmEstoque)</p>
+                </div>
+                }
+            }
+    
 
-            <p class="m-1">@item.Descricao</p>
-            <a class="btn btn-dark m-4" asp-area="Admin" asp-controller="Produto" asp-action="Details">Mais informações</a>
-        </div>
-    }
+    
 </div>
