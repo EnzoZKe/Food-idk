@@ -4,12 +4,12 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Usuários</h1>
+<h1 class="text-white">Usuários</h1>
 
 <p>
-    <a asp-action="Create">Criar novo</a>
+    <a asp-action="Create" class="btn btn-dark m-3 ButtonEntrar d-flex align-items-center col-md-1 col-4 justify-content-center ">Criar novo</a>
 </p>
-<table class="table">
+<table class="table text-white shadow-lg">
     <thead>
         <tr>
             <th>
@@ -27,7 +27,7 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
+            <tr class="align-middle">
                 <td>
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
@@ -37,10 +37,10 @@
                 <td>
                     <img src="@Html.DisplayFor(modelItem => item.FotoPFP)" class="img-fluid img-thumbnail" style="max-width: 100px;">
                 </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Nome" >Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.Nome">Detalhes</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Nome">Deletar    </a>
+                <td class="d-flex">
+                    <a asp-action="Edit" asp-route-id="@item.Nome" class="btn btn-dark m-3 ButtonEntrar d-flex align-items-center">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.Nome" class="btn btn-dark m-3 ButtonEntrar d-flex align-items-center">Detalhes</a>
+                    <a asp-action="Delete" asp-route-id="@item.Nome" class="btn btn-dark m-3 ButtonEntrar d-flex align-items-center">Deletar</a>
                 </td>
             </tr>
         }

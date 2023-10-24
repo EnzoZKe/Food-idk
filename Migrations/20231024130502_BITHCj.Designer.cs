@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AAAAA_FUNCIONA_MDS.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231017155332_Prodss")]
-    partial class Prodss
+    [Migration("20231024130502_BITHCj")]
+    partial class BITHCj
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

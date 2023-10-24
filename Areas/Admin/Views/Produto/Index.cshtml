@@ -4,64 +4,63 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Produtos</h1>
+<h1 class="text-white">Produtos</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-dark m-2 ButtonEntrar m-4">Criar novo</a>
 </p>
-<table class="table">
-    <thead >
-        <tr class="container d-flex justify-content-between">
-            <th class="d-lg-block col-1 text-light col-md-2 col-4">
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th class="d-lg-block col-1 text-light col-md-2 col-4 d-lg-block d-none">
-                @Html.DisplayNameFor(model => model.Descricao)
-            </th>
-            <th class="d-lg-block d-none d-lg-block text-light col-md-2 col-4">
-                @Html.DisplayNameFor(model => model.Foto)
-            </th>
-            <th class="d-lg-block col-1 text-light col-md-2 col-4 d-lg-block d-none">
-                @Html.DisplayNameFor(model => model.EmEstoque)
-            </th>
-            <th class="d-lg-block text-light col-md-2 col-4">
-                @Html.DisplayNameFor(model => model.Preco)
-            </th>
-            <th class="d-lg-block col-1 text-light col-md-2 col-4 d-lg-block d-none">
-                @Html.DisplayNameFor(model => model.Categoria)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr class="container d-flex justify-content-between">
-                <td class="d-lg-block col-1 text-light col-md-2 col-4">
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td class="d-lg-block col-1 text-light col-md-2 col-4 d-lg-block d-none">
-                    @Html.DisplayFor(modelItem => item.Descricao)
-                </td>
-                <td>
-                    <img src="@Html.DisplayFor(modelItem => item.Foto)" class="img-fluid img-thumbnail d-lg-block d-none"
-                        style="max-width: 100px; height: 100px;">
-                </td>
-                <td class="d-lg-block col-1 text-light col-md-2 col-4 d-lg-block d-none">
-                    @Html.DisplayFor(modelItem => item.EmEstoque)
-                </td>
-                <td class="d-lg-block col-1 text-light col-md-2 col-4">
-                    @Html.DisplayFor(modelItem => item.Preco)
-                </td>
-                <td class="d-lg-block col-1 text-light col-md-2 col-4 d-lg-block d-none">
-                    @Html.DisplayFor(modelItem => item.ProdutoId)
-                </td>
-                <td class="d-lg-block col-1 text-light col-md-2 col-4">
-                    <a asp-action="Edit" asp-route-id="@item.ProdutoId">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.ProdutoId">Detalhes</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ProdutoId">Deletar</a>
-                </td>
+<main class="">
+    <table class="table text-white shadow-lg text-center d-flex justify-content-center flex-column ">
+        <thead>
+            <tr class="container d-flex">
+                <th class="d-lg-block text-light col-md-2 col-4">
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+
+                <th class="d-lg-block d-none text-light col-md-2">
+                    @Html.DisplayNameFor(model => model.Foto)
+                </th>
+                <th class="d-lg-block d-none text-light col-md-2">
+                    @Html.DisplayNameFor(model => model.EmEstoque)
+                </th>
+                <th class="d-lg-block text-light col-md-2 col-4">
+                    @Html.DisplayNameFor(model => model.Preco)
+                </th>
+                <th class="d-lg-block d-none text-light col-md-2">
+                    @Html.DisplayNameFor(model => model.Categoria)
+                </th>
+                <th class="w-100">Opções</th>
             </tr>
-        }
-    </tbody>
-</table>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="container d-flex ">
+                    <td class="d-lg-block text-light col-md-2 col-4 ">
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+
+                    <td class="d-lg-block d-none text-light col-md-2">
+                        <img src="@Html.DisplayFor(modelItem => item.Foto)" class="img-fluid img-thumbnail rounded-0"
+                            style="max-width: 100px;">
+
+                    </td>
+                    <td class="d-lg-block d-none text-light col-md-2">
+                        @Html.DisplayFor(modelItem => item.EmEstoque)
+                    </td>
+                    <td class="d-lg-block text-light col-md-2 col-4">
+                        @Html.DisplayFor(modelItem => item.Preco)
+                    </td>
+                    <td class="d-lg-block d-none text-light col-md-2">
+                        @Html.DisplayFor(modelItem => item.Categoria.NomeCategoria)
+                    </td>
+                    <td class="d-flex">
+                        <a asp-action="Edit" asp-route-id="@item.ProdutoId" class="btn btn-dark m-3 ButtonEntrar d-flex align-items-center">Editar</a>
+                        <a asp-action="Delete" asp-route-id="@item.ProdutoId"
+                            class="btn btn-dark m-3 ButtonEntrar d-flex align-items-center">Deletar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    
+    </table>
+</main>

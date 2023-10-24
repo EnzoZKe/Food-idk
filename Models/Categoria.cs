@@ -6,10 +6,8 @@ namespace AAAAA_FUNCIONA_MDS.Models
     [Table("Categorias")]
     public class Categoria
     {
-        [Key]
+        [Key] 
         public int CategoriaId { get; set; }
-        public string NomeCategoria { get; set; }
-
-        
+        public string NomeCategoria { get; set; }   
     }
 }

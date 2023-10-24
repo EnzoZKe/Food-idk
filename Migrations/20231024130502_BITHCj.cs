@@ -5,7 +5,7 @@
 namespace AAAAA_FUNCIONA_MDS.Migrations
 {
     /// <inheritdoc />
-    public partial class Prods : Migration
+    public partial class BITHCj : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

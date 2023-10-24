@@ -8,32 +8,42 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/AAAAA_FUNCIONA_MDS.styles.css" asp-append-version="true" />
+
+    <style>
+        nav {
+            background-image: linear-gradient(black, rgba(0, 0, 0, 0.603), rgba(0, 0, 0, 0)) !important;
+            padding-left: 6.5vw;
+            padding-right: 6.5vw;
+        }
+
+        
+    </style>
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">IndoAli Delinery</a>
+    <header class=" w-100">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark  box-shadow mb-3">
+            <div class="container-fluid border-bottom">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">IndoAli Delivery</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Início</a>
+                        <li class="nav-item ">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Início</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Usuario" asp-action="Index">
+                            <a class="nav-link" asp-area="Admin" asp-controller="Usuario" asp-action="Index">
                                 Usuário</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Produto"
+                            <a class="nav-link" asp-area="Admin" asp-controller="Produto"
                                 asp-action="Index">Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Categoria"
+                            <a class="nav-link" asp-area="Admin" asp-controller="Categoria"
                                 asp-action="Index">Categorias</a>
                         </li>
                     </ul>
@@ -47,9 +57,20 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - IndoAli Delivery - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="border-top footer text-muted d-flex justify-content-around pt-5 pb-4 container">
+        <div class="d-flex flex-column gap-4">
+            <a href="#" class="text-decoration-none text-white ">Sobre nós</a>
+            <a href="#" class="text-decoration-none text-white">Contato</a>
+            <a href="#" class="text-decoration-none text-white">Impacto Social</a>
+        </div>
+        <div class="text-center">
+            <img src="~/img/LogoFooter.png" height="50" width="50">
+            <h4 class="fw-bolder text-white mt-3">IndoAli Delivery</h4>
+        </div>
+        <div class="d-flex flex-column gap-4">
+            <a href="#" class="text-decoration-none text-white bi bi-instagram">Instagram</a>
+            <a href="#" class="text-decoration-none text-white bi bi-whatsapp">Whatsapp</a>
+            <a href="#" class="text-decoration-none text-white bi bi-facebook">Facebook</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

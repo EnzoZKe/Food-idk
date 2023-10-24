@@ -27,11 +27,11 @@ namespace AAAAA_FUNCIONA_MDS.Controllers
         {
               return _context.Categorias != null ? 
                           View(await _context.Categorias.ToListAsync()) :
-                          Problem("Entity set 'AppDbContext.Categoria'  is null.");
+                          Problem("Entity set 'AppDbContext.Categorias'  is null.");
         }
 
         // GET: Categoria/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Categorias == null)
             {
@@ -39,7 +39,7 @@ namespace AAAAA_FUNCIONA_MDS.Controllers
             }
 
             var categoria = await _context.Categorias
-                .FirstOrDefaultAsync(m => m.NomeCategoria == id);
+                .FirstOrDefaultAsync(m => m.CategoriaId == id);
             if (categoria == null)
             {
                 return NotFound();
@@ -59,7 +59,7 @@ namespace AAAAA_FUNCIONA_MDS.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("NomeCategoria,Id")] Categoria categoria)
+        public async Task<IActionResult> Create([Bind("CategoriaId,NomeCategoria")] Categoria categoria)
         {
             if (ModelState.IsValid)
             {
@@ -71,7 +71,7 @@ namespace AAAAA_FUNCIONA_MDS.Controllers
         }
 
         // GET: Categoria/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Categorias == null)
             {
@@ -91,9 +91,9 @@ namespace AAAAA_FUNCIONA_MDS.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("NomeCategoria,Id")] Categoria categoria)
+        public async Task<IActionResult> Edit(int id, [Bind("CategoriaId,NomeCategoria")] Categoria categoria)
         {
-            if (id != categoria.NomeCategoria)
+            if (id != categoria.CategoriaId)
             {
                 return NotFound();
             }
@@ -107,7 +107,7 @@ namespace AAAAA_FUNCIONA_MDS.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CategoriaExists(categoria.NomeCategoria))
+                    if (!CategoriaExists(categoria.CategoriaId))
                     {
                         return NotFound();
                     }
@@ -122,7 +122,7 @@ namespace AAAAA_FUNCIONA_MDS.Controllers
         }
 
         // GET: Categoria/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Categorias == null)
             {
@@ -130,7 +130,7 @@ namespace AAAAA_FUNCIONA_MDS.Controllers
             }
 
             var categoria = await _context.Categorias
-                .FirstOrDefaultAsync(m => m.NomeCategoria == id);
+                .FirstOrDefaultAsync(m => m.CategoriaId == id);
             if (categoria == null)
             {
                 return NotFound();
@@ -142,11 +142,11 @@ namespace AAAAA_FUNCIONA_MDS.Controllers
         // POST: Categoria/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Categorias == null)
             {
-                return Problem("Entity set 'AppDbContext.Categoria'  is null.");
+                return Problem("Entity set 'AppDbContext.Categorias'  is null.");
             }
             var categoria = await _context.Categorias.FindAsync(id);
             if (categoria != null)
@@ -158,9 +158,9 @@ namespace AAAAA_FUNCIONA_MDS.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CategoriaExists(string id)
+        private bool CategoriaExists(int id)
         {
-          return (_context.Categorias?.Any(e => e.NomeCategoria == id)).GetValueOrDefault();
+          return (_context.Categorias?.Any(e => e.CategoriaId == id)).GetValueOrDefault();
         }
     }
 }

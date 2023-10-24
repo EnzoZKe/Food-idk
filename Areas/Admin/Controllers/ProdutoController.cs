@@ -51,7 +51,7 @@ namespace AAAAA_FUNCIONA_MDS.Controllers
         // GET: Produto/Create
         public IActionResult Create()
         {
-            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaId");
+            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "NomeCategoria");
             return View();
         }
 
@@ -62,13 +62,13 @@ namespace AAAAA_FUNCIONA_MDS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ProdutoId,Nome,Descricao,Foto,EmEstoque,Preco,CategoriaId")] Produto produto)
         {
-            if (true)
+            if (!ModelState.IsValid)
             {
                 _context.Add(produto);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaId", produto.CategoriaId);
+            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "NomeCategoria");
             return View(produto);
         }
 
@@ -85,7 +85,7 @@ namespace AAAAA_FUNCIONA_MDS.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaId", produto.CategoriaId);
+            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "NomeCategoria");
             return View(produto);
         }
 
@@ -101,7 +101,7 @@ namespace AAAAA_FUNCIONA_MDS.Controllers
                 return NotFound();
             }
 
-            if (true)
+            if (!ModelState.IsValid)
             {
                 try
                 {
@@ -121,7 +121,7 @@ namespace AAAAA_FUNCIONA_MDS.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "CategoriaId", produto.CategoriaId);
+            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "CategoriaId", "NomeCategoria");
             return View(produto);
         }
 

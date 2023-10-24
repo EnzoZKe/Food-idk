@@ -4,11 +4,11 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+<h1 class="text-white">Deletar</h1>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Produto</h4>
+<h3 class="text-white mb-5">Você tem certeza que quer deletar?</h3>
+<div class="text-white">
+    <h4>Produto:</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -27,13 +27,21 @@
             @Html.DisplayNameFor(model => model.Foto)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Foto)
+            <img src="@Html.DisplayFor(model => model.Foto)" class="img-fluid img-thumbnail" style="max-width: 300px;">
+            
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.EmEstoque)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EmEstoque)
+            @if(Model.EmEstoque)
+            {
+                <p class="text-success">Em estoque!</p>
+            }else
+            {
+                <p class="text-danger">Fora de estoque!</p>
+            }
+            
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Preco)
@@ -45,13 +53,14 @@
             @Html.DisplayNameFor(model => model.Categoria)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Categoria.CategoriaId)
+            @Html.DisplayFor(model => model.Categoria.NomeCategoria)
         </dd>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="ProdutoId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Delete" class="btn btn-dark ButtonEntrar " /> 
+        <a asp-action="Index"class="btn bg-black text-white ButtonEntrar m-2">Voltar para a lista</a>
+        
     </form>
 </div>

@@ -4,11 +4,6 @@
     ViewData["Title"] = "Home Page";
 }
 
-<style>
-
-</style>
-
-
 <!--? Sessão do carrossel-->
 <section class="carousel carousel-dark slide Carrossel " id="meucarrossel" data-bs-ride="carousel">
     <!--? indicador do banner-->
@@ -25,24 +20,37 @@
 
             <img src="https://img.freepik.com/fotos-gratis/asas-de-frango-de-churrasco-em-molho-agridoce-piquenique-menu-de-verao-comida-saborosa-vista-do-topo-configuracao-plana_2829-6470.jpg?w=1380&t=st=1697543951~exp=1697544551~hmac=3ada35860680a53ddd198300a3367df10dcb952c19812efbf7477b9c441f8653"
                 alt="" class="w-100  caro-img">
-            <div class="carousel-caption">
-
+            <div class="carousel-caption text-light mb-5 pb-5 fs-2 fw-bolder">
+                <p>Pedidos acima de 50 reais, frete grátis!</p>
+                <a class="btn btn-dark m-2" href="#">Mais informações</a>
             </div>
 
         </div>
         <div class="carousel-item">
             <img src="https://img.freepik.com/fotos-gratis/ovos-fritos-com-legumes_2829-10927.jpg?w=1380&t=st=1697544015~exp=1697544615~hmac=d17bce80e52212f53d6aef60bf8819ff93909448ae53d29d93a06c2ebf9a4af1"
                 alt="" class=" w-100 img-fluid caro-img">
+            <div class="carousel-caption text-light mb-5 pb-5 fs-2 fw-bolder">
+                <p>Primeiro pedido com 50% de desconto!</p>
+                <a class="btn btn-dark m-2" href="#">Mais informações</a>
+            </div>
         </div>
 
         <div class="carousel-item">
             <img src="https://img.freepik.com/fotos-premium/variedade-de-alimentos-salada-abacate-codorna-cogumelos-abobora-em-um-fundo-preto-vista-superior-espaco-livre-para-o-seu-texto_187166-35302.jpg?w=1380"
                 alt="" class=" w-100 img-fluid caro-img">
+            <div class="carousel-caption text-light mb-5 pb-5 fs-2 fw-bolder">
+                <p>Delivery rápido e seguro!</p>
+                <a class="btn btn-dark m-2" href="#">Mais informações</a>
+            </div>
         </div>
 
         <div class="carousel-item">
             <img src="https://img.freepik.com/fotos-gratis/frite-a-carne-com-pimentao-feijao-verde-e-arroz_2829-20132.jpg?w=1060&t=st=1697559157~exp=1697559757~hmac=eef9a16dde8dc0fe9ab461edde3c6a280e46a52586c3e498ad85a7e209ed55d5"
                 alt="" class=" w-100 caro-img">
+            <div class="carousel-caption text-light mb-5 pb-5 fs-2 fw-bolder">
+                <p>Todos os tipos de comida, bebida e restaurantes!</p>
+                <a class="btn btn-dark m-2" href="#">Mais informações</a>
+            </div>
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#meucarrossel" data-bs-slide="prev">
@@ -57,33 +65,51 @@
 
 </section>
 
-<div class="form-group DivInputPesquisa">
+<div class="form-group DivInputPesquisa d-flex justify-content-center align-items-center mt-5">
     <label class="control-label text-light"></label>
-    <input type="text" class="form-control border-0 InputPesquisa ps-3" placeholder="Pesquisar..."/>
+    <input type="text" class="form-control border-0 InputPesquisa ps-3" placeholder="Pesquisar..." />
     <span class="text-danger"></span>
+    <span class="bg-white p-2 border-0 Lupa ms-3 d-md-block d-none">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-search Pesquisa align-middle"
+            viewBox="0 0 16 16">
+            <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+        </svg>
+    </span>
 </div>
 
-<div class="container-fluid d-md-flex justify-content-center flex-wrap">
-<!-- não não >:T-->
-<!--ESQUEMA DE PIRAMINE-->
-    
-        @foreach (var item in Model)
-            {
-                if(@item.EmEstoque == true)
-                {
-                    <div class=" m-3 d-flex flex-column text-center bg-white"
-                    style="width: 200px; box-shadow: 4px 4px 10px rgba(222, 222, 222, 0.416);">
-                    <div>
-                        <img src="@item.Foto" class="" style="width: 100%; height: 150px;">
-                        <p class="text-white bg-dark">@item.Nome</p>
-                    </div>
-                    <p class="m-1">@item.Descricao</p>
-                    <a class="btn btn-dark m-4" asp-area="Admin" asp-controller="Produto" asp-action="Details">Mais informações</a>
-                    <p class="text-center">Em estoque @Html.DisplayFor(model => item.EmEstoque)</p>
-                </div>
-                }
-            }
-    
+<div class="container-fluid d-flex justify-content-center text-center align-items-center flex-wrap">
 
-    
+    @foreach (var item in Model)
+    {
+        if (@item.EmEstoque == true)
+        {
+            <div class=" m-3 d-flex flex-column text-center bg-white cardProduto cardProduto">
+                <div>
+                    <img src="@item.Foto" class="" style="width: 100%; height: 150px;">
+                    <p class="text-white bg-dark">@item.Nome</p>
+                </div>
+                <p class="m-1 btn-white-space-nowrap text-block" style="height: 100px;">@item.Descricao</p>
+                <p class="m-1">R$ @item.Preco</p>
+                <a class="btn btn-dark m-2" href="/Admin/Produto/Details/@item.ProdutoId">Mais informações</a>
+                <p class="text-center text-success">Em estoque</p>
+            </div>
+        }
+        else
+        {
+            <div class=" m-3 d-flex flex-column text-center bg-white cardProduto">
+                <div>
+                    <img src="@item.Foto" class="" style="width: 100%; height: 150px;">
+                    <p class="text-white bg-dark">@item.Nome</p>
+                </div>
+                <p class="m-1" style="height: 100px;">@item.Descricao</p>
+                <p class="m-1">R$ @item.Preco</p>
+                <a class="btn btn-dark m-2" href="/Admin/Produto/Details/@item.ProdutoId">Mais informações</a>
+                <p class="text-center text-danger">Fora de estoque</p>
+            </div>
+        }
+    }
+
+
+
 </div>

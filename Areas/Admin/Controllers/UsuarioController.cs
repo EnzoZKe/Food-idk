@@ -92,7 +92,7 @@ namespace AAAAA_FUNCIONA_MDS.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id,  Usuario usuario)
+        public async Task<IActionResult> Edit(string id, Usuario usuario)
         {
             if (id != usuario.Nome)
             {
