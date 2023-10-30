@@ -4,40 +4,40 @@
     ViewData["Title"] = "Index";
 }
 
-<h1 class="text-white">Usuários</h1>
+<h1 class="text-white text-center ">Usuários</h1>
 
-<p>
+<p class="d-flex justify-content-center">
     <a asp-action="Create" class="btn btn-dark m-3 ButtonEntrar d-flex align-items-center col-md-1 col-4 justify-content-center ">Criar novo</a>
 </p>
-<table class="table text-white shadow-lg">
+<table class="table text-white shadow-lg ">
     <thead>
-        <tr>
-            <th>
+        <tr class="container d-flex ">
+            <th class="d-lg-block text-light col-md-4 col-6">
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
-            <th>
+            <th class="d-none">
                 @Html.DisplayNameFor(model => model.Senha)
             </th>
-            <th>
+            <th class="d-lg-block d-none text-light col-md-4">
                 @Html.DisplayNameFor(model => model.FotoPFP)
             </th>
-            <th></th>
+            <th class="d-lg-block text-light col-md-4 col-6">Opções</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr class="align-middle">
-                <td>
+            <tr class="container d-flex">
+                <td class="d-lg-block text-light col-md-4 col-6">
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
-                <td>
+                <td class="d-none">
                     @Html.DisplayFor(modelItem => item.Senha)
                 </td>
-                <td>
+                <td class="d-lg-block d-none text-light col-md-4 ">
                     <img src="@Html.DisplayFor(modelItem => item.FotoPFP)" class="img-fluid img-thumbnail" style="max-width: 100px;">
                 </td>
-                <td class="d-flex">
+                <td class="d-flex flex-wrap col-6 col-md-4">
                     <a asp-action="Edit" asp-route-id="@item.Nome" class="btn btn-dark m-3 ButtonEntrar d-flex align-items-center">Editar</a>
                     <a asp-action="Details" asp-route-id="@item.Nome" class="btn btn-dark m-3 ButtonEntrar d-flex align-items-center">Detalhes</a>
                     <a asp-action="Delete" asp-route-id="@item.Nome" class="btn btn-dark m-3 ButtonEntrar d-flex align-items-center">Deletar</a>

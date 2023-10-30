@@ -4,18 +4,20 @@
 }
 <main class="container">
     <br>
-    <h1 class="text-light mt-5 ms-5 text">Login</h1>
-    <div class="container col-12 col-lg-6 m-5 InfoSection">
+    <h1 class="text-light mt-5 text-center fw-bolder">Login</h1>
+    <div class="container InfoSection">
         <form asp-action="Index">
             <div asp-validation-summary="ModelOnly" class="text-danger "></div>
-            <div class="form-group m-5">
+            
+            <div class="form-group d-flex flex-column">
                 <label asp-for="Login" class="control-label text-light"></label>
-                <input asp-for="Login" class="form-control InputInfo border-0" />
+                <input asp-for="Login" class="form-control InputInfo border-0 " />
                 <span asp-validation-for="Login" class="text-danger"></span>
             </div>
-            <div class="form-group m-5">
+            
+            <div class="form-group">
                 <label asp-for="Senha" class="control-label text-light"></label>
-                <input type="password" asp-for="Senha" class="form-control border-0 InputInfo" />
+                <input type="password" asp-for="Senha" class="form-control border-0 InputInfo"/>
                 <span asp-validation-for="Senha" class="text-danger"></span>
             </div>
             @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))

@@ -5,7 +5,7 @@
 }
 
 <!--? Sessão do carrossel-->
-<section class="carousel carousel-dark slide Carrossel " id="meucarrossel" data-bs-ride="carousel">
+<section class="carousel carousel-dark slide Carrossel" id="meucarrossel" data-bs-ride="carousel">
     <!--? indicador do banner-->
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#meucarrossel" data-bs-slide-to="0" class="active bg-white"></button>
@@ -16,7 +16,7 @@
     </div>
 
     <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="1000">
+        <div class="carousel-item active" data-bs-interval="5000">
 
             <img src="https://img.freepik.com/fotos-gratis/asas-de-frango-de-churrasco-em-molho-agridoce-piquenique-menu-de-verao-comida-saborosa-vista-do-topo-configuracao-plana_2829-6470.jpg?w=1380&t=st=1697543951~exp=1697544551~hmac=3ada35860680a53ddd198300a3367df10dcb952c19812efbf7477b9c441f8653"
                 alt="" class="w-100  caro-img">
@@ -48,7 +48,7 @@
             <img src="https://img.freepik.com/fotos-gratis/frite-a-carne-com-pimentao-feijao-verde-e-arroz_2829-20132.jpg?w=1060&t=st=1697559157~exp=1697559757~hmac=eef9a16dde8dc0fe9ab461edde3c6a280e46a52586c3e498ad85a7e209ed55d5"
                 alt="" class=" w-100 caro-img">
             <div class="carousel-caption text-light mb-5 pb-5 fs-2 fw-bolder">
-                <p>Todos os tipos de comida, bebida e restaurantes!</p>
+                <p>Todos os tipos de comida e bebida!</p>
                 <a class="btn btn-dark m-2" href="#">Mais informações</a>
             </div>
         </div>
@@ -84,14 +84,15 @@
     {
         if (@item.EmEstoque == true)
         {
-            <div class=" m-3 d-flex flex-column text-center bg-white cardProduto cardProduto">
+            <div class="m-3 d-flex flex-column text-center bg-white cardProduto">
                 <div>
                     <img src="@item.Foto" class="" style="width: 100%; height: 150px;">
                     <p class="text-white bg-dark">@item.Nome</p>
                 </div>
-                <p class="m-1 btn-white-space-nowrap text-block" style="height: 100px;">@item.Descricao</p>
-                <p class="m-1">R$ @item.Preco</p>
-                <a class="btn btn-dark m-2" href="/Admin/Produto/Details/@item.ProdutoId">Mais informações</a>
+                <p class="m-1 btn-white-space-nowrap text-block" style="height: 65px;">@item.Descricao</p>
+                <p class="m-1">R$ @item.Preco.ToString("0.00")</p>
+                <a href="" class="btn btn-dark m-2">Adicionar ao carrinho</a>
+                <a class="text-decoration-none MaisInfo mb-3" href="/Admin/Produto/Details/@item.ProdutoId">Mais informações</a>
                 <p class="text-center text-success">Em estoque</p>
             </div>
         }
@@ -102,9 +103,10 @@
                     <img src="@item.Foto" class="" style="width: 100%; height: 150px;">
                     <p class="text-white bg-dark">@item.Nome</p>
                 </div>
-                <p class="m-1" style="height: 100px;">@item.Descricao</p>
-                <p class="m-1">R$ @item.Preco</p>
-                <a class="btn btn-dark m-2" href="/Admin/Produto/Details/@item.ProdutoId">Mais informações</a>
+                <p class="m-1" style="height: 65px;">@item.Descricao</p>
+                <p class="m-1">R$ @item.Preco.ToString("0.00")</p>
+                <a href="" class="btn btn-dark m-2">Adicionar ao carrinho</a>
+                <a class="text-decoration-none MaisInfo mb-3" href="/Admin/Produto/Details/@item.ProdutoId">Mais informações</a>
                 <p class="text-center text-danger">Fora de estoque</p>
             </div>
         }

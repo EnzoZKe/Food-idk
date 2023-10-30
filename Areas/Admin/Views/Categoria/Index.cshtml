@@ -4,27 +4,27 @@
     ViewData["Title"] = "Index";
 }
 
-<h1 class="text-white">Categorias</h1>
+<h1 class="text-white text-center ">Categorias</h1>
 
-<p>
+<p class="d-flex justify-content-center ">
     <a asp-action="Create" class="btn btn-dark m-2 ButtonEntrar">Criar nova</a>
 </p>
 <table class="table text-white shadow-lg ">
     <thead>
-        <tr>
+        <tr class="text-center">
             <th>
                 Nome das Categoria
             </th>
-            <th></th>
+            <th>Opções</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody >
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td class="text-center">
                 @Html.DisplayFor(modelItem => item.NomeCategoria)
             </td>
-            <td>
+            <td class="text-lg-center ">
                 <a asp-action="Edit" asp-route-id="@item.CategoriaId" class="btn btn-dark m-2 ButtonEntrar">Editar</a>
                 <a asp-action="Details" asp-route-id="@item.CategoriaId" class="btn btn-dark m-2 ButtonEntrar">Detalhes</a>
                 <a asp-action="Delete" asp-route-id="@item.CategoriaId" class="btn btn-dark m-2 ButtonEntrar">Deletar</a>

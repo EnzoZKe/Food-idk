@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\img\\LogoFooter.svg"
     },
     {
+      "Id": "C:\\Users\\Aluno\\OneDrive - SESISENAISP - Escolas\\curso dev\\2 semestre\\backEnd\\AAAAA FUNCIONA MDS\\wwwroot\\img\\favicon.ico",
+      "PackagePath": "staticwebassets\\img\\favicon.ico"
+    },
+    {
       "Id": "C:\\Users\\Aluno\\OneDrive - SESISENAISP - Escolas\\curso dev\\2 semestre\\backEnd\\AAAAA FUNCIONA MDS\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

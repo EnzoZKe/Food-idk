@@ -118,6 +118,10 @@ body {
   width: 200px; box-shadow: 4px 4px 10px rgba(222, 222, 222, 0.416);
 }
 
+.MaisInfo {
+  color: var(--azulCinza);
+}
+
 @media (max-width: 500px) {
   .carousel-caption {
     margin-top: 100px;
@@ -128,8 +132,7 @@ body {
   }
 
   .cardProduto {
-    width: 155px;
-    height: 350px;
+    width: 240px;
     box-shadow: 4px 4px 10px rgba(222, 222, 222, 0.416);
   }
 
@@ -148,5 +151,22 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .Carrossel{
+    margin-top: 50px;
+  }
+
+  .InfoSection {
+    margin-top: 85px;
+    margin-bottom: 85px;
+  }
+
+  .FooterLink {
+    display: none;
+  }
+
+  .navbar-toggler {
+    margin-left: 19vw;
   }
 }
